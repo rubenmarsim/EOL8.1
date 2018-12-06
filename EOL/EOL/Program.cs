@@ -58,5 +58,16 @@ namespace EOL
 
             _DG.Add(_NomUsuari, _dDatos);
         }
+
+        #region Gestion Datos
+        private void GuardarenDisco()
+        {
+
+        }
+        private void LeerdeDisco()
+        {
+
+        }
+        #endregion
     }
 }
