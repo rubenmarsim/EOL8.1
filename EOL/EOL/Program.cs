@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,7 +9,7 @@ namespace EOL
 {
     class Program
     {
-        #region Variables Globales
+        #region Variables Globales        
         static string _OpcionGeneral = "";
         static string _NomUsuari = "";
         const string _cNomComplert = "Nom Complert";
@@ -23,13 +24,15 @@ namespace EOL
         static string _Contraseña = "";
         static bool _SiExisteUsuario = false;
         static Dictionary<string, string> _dDatos = new Dictionary<string, string>();
-        static Dictionary<string, Dictionary<string, string>> _DG = new Dictionary<string, Dictionary<string, string>>();       
+        static Dictionary<string, Dictionary<string, string>> _DG = new Dictionary<string, Dictionary<string, string>>();
+        const string _Path = "Dictionaries.txt";
+        static StreamWriter _SW = new StreamWriter(_Path);
         #endregion
 
         static void Main(string[] args)
         {
             PreguntasGenerales();
-            Console.ReadKey();            
+            Console.ReadKey();     
         }
 
         #region Preguntas
@@ -100,10 +103,12 @@ namespace EOL
             _Contraseña = Console.ReadLine().Trim();
 
             LLenarDiccionario();
+            GuardarenDisco();
         }
         private static void Borrar()
         {
             _DG.Remove(_NomUsuari);
+            GuardarenDisco();
         }
         #endregion
 
@@ -121,7 +126,16 @@ namespace EOL
         #region Gestion Datos
         private static void GuardarenDisco()
         {
-
+            foreach (var EntradaDG in _DG)
+            {
+                _SW.WriteLine(EntradaDG.Key);
+                foreach (var EntradadDatos in _dDatos)
+                {
+                    _SW.WriteLine(EntradadDatos.Key);
+                    _SW.WriteLine(EntradadDatos.Value);
+                }
+            }
+            _SW.Close();
         }
         private static void LeerdeDisco()
         {
