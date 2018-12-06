@@ -88,16 +88,37 @@ namespace EOL
         }
         private static void PreguntasAñadir()
         {
-            //Aqui hay que comprobar si el usuario existe
-            Console.WriteLine("");
+            Console.WriteLine("Introdueix el "+_cNomComplert);
+            _Nom_Complert = Console.ReadLine().Trim();
+            Console.WriteLine("Introdueix el " + _cEmail);
+            _Email = Console.ReadLine().Trim();
+            Console.WriteLine("Introdueix el " + _cTelf);
+            _Telf = Console.ReadLine().Trim();
+            Console.WriteLine("Introdueix la " + _cAdreca);
+            _Adreca = Console.ReadLine().Trim();
+            Console.WriteLine("Introdueix la " + _cContraseña);
+            _Contraseña = Console.ReadLine().Trim();
+
+            LLenarDiccionario();
         }
         private static void PreguntasBorrar()
         {
-            // Aqui hay que comprobar si el usuario existe
+            _DG.Remove(_NomUsuari);
         }
         private static void PreguntasModificar()
         {
-            // Aqui hay que comprobar si el usuario existe
+            Console.WriteLine("Introdueix el " + _cNomComplert);
+            _Nom_Complert = Console.ReadLine().Trim();
+            Console.WriteLine("Introdueix el " + _cEmail);
+            _Email = Console.ReadLine().Trim();
+            Console.WriteLine("Introdueix el " + _cTelf);
+            _Telf = Console.ReadLine().Trim();
+            Console.WriteLine("Introdueix la " + _cAdreca);
+            _Adreca = Console.ReadLine().Trim();
+            Console.WriteLine("Introdueix la " + _cContraseña);
+            _Contraseña = Console.ReadLine().Trim();
+
+            LLenarDiccionario();
         }
         #endregion
 
