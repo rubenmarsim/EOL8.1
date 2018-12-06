@@ -52,7 +52,7 @@ namespace EOL
             {
                 if (!_SiExisteUsuario)
                 {
-                    PreguntasAñadir();
+                    PreguntasEspecificas();
                 }
                 else
                 {
@@ -63,7 +63,7 @@ namespace EOL
             {
                 if (_SiExisteUsuario)
                 {
-                    PreguntasBorrar();
+                    Borrar();
                 }
                 else
                 {
@@ -74,7 +74,7 @@ namespace EOL
             {
                 if (_SiExisteUsuario)
                 {
-                    PreguntasModificar();
+                    PreguntasEspecificas();
                 }
                 else
                 {
@@ -86,7 +86,7 @@ namespace EOL
                 Console.WriteLine("Introdueix una opcio valida");
             }
         }
-        private static void PreguntasAñadir()
+        private static void PreguntasEspecificas()
         {
             Console.WriteLine("Introdueix el "+_cNomComplert);
             _Nom_Complert = Console.ReadLine().Trim();
@@ -101,24 +101,9 @@ namespace EOL
 
             LLenarDiccionario();
         }
-        private static void PreguntasBorrar()
+        private static void Borrar()
         {
             _DG.Remove(_NomUsuari);
-        }
-        private static void PreguntasModificar()
-        {
-            Console.WriteLine("Introdueix el " + _cNomComplert);
-            _Nom_Complert = Console.ReadLine().Trim();
-            Console.WriteLine("Introdueix el " + _cEmail);
-            _Email = Console.ReadLine().Trim();
-            Console.WriteLine("Introdueix el " + _cTelf);
-            _Telf = Console.ReadLine().Trim();
-            Console.WriteLine("Introdueix la " + _cAdreca);
-            _Adreca = Console.ReadLine().Trim();
-            Console.WriteLine("Introdueix la " + _cContraseña);
-            _Contraseña = Console.ReadLine().Trim();
-
-            LLenarDiccionario();
         }
         #endregion
 
